@@ -1,18 +1,23 @@
 page {
   padding-bottom: 90rpx;
 }
+
 .address {
   padding: 20rpx;
+
   .hove-addr {
     font-size: 30rpx;
   }
+
   .tel-txt {
     margin-left: 60rpx;
   }
+
   .contact-detail {
     display: flex;
     justify-content: space-between;
   }
+
   .addr-detail {
     margin-top: 10rpx;
   }
@@ -30,33 +35,40 @@ page {
     border-right: 0;
   }
 }
+
 .pro-item {
   display: flex;
   padding: 30rpx 15rpx;
   border-bottom: 1px solid #ececec;
+
   .checkbox-wrap {
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
+
     checkbox {
       transform: scale(0.8)
     }
   }
+
   .img-wrap {
     flex: 2;
     border: 1px solid #ececec;
     text-align: center;
     margin-right: 20rpx;
-    image{
+
+    image {
       width: 70%;
     }
   }
+
   .pro-r {
     flex: 3;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
     .pro-name {
       display: -webkit-box;
       -webkit-box-orient: vertical;
@@ -64,20 +76,25 @@ page {
       overflow: hidden;
       color: #666666;
     }
+
     .pro-price-num {
       display: flex;
       justify-content: space-between;
+
       .price {
         color: var(--themeColor);
         font-size: 30rpx;
       }
     }
+
     .num {
       display: flex;
+
       .number {
         padding: 5rpx 15rpx;
         text-align: center;
       }
+
       .btn {
         padding: 5rpx 15rpx;
         text-align: center;
@@ -86,6 +103,7 @@ page {
     }
   }
 }
+
 .calc-wrap {
   height: 90rpx;
   display: flex;
@@ -97,25 +115,31 @@ page {
   width: 100%;
   background-color: #fff;
   border-top: 1px solid #dddddd;
+
   .checkbox-all {
     flex: 3;
     display: flex;
     align-items: center;
+
     checkbox {
       transform: scale(0.6);
     }
   }
+
   .heji-txt {
     flex: 2;
     font-size: 30rpx;
     text-align: right;
+
     .price-txt {
       color: var(--themeColor);
     }
+
     .freight-txt {
       font-size: 24rpx;
     }
   }
+
   .close-account {
     margin-left: 10rpx;
     flex: 2;
@@ -128,10 +152,22 @@ page {
     height: 100%;
   }
 }
+
 .empty-cart {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  padding-top: 90rpx;
-  font-size: 40rpx;
+  text-align: center;
+  padding-top: 30rpx;
+
+  .empty-img {
+    image {
+      width: 50%;
+    }
+  }
+
+  .empty-txt {
+    margin-top: 20rpx;
+    font-size: 40rpx;
+  }
 }
