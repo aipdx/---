@@ -1,3 +1,6 @@
+import {request} from '../../request/index'
+import {requestPayment} from '../../utils/asyncWx'
+
 Page({
   data: {
     address: {},
@@ -6,7 +9,6 @@ Page({
   onLoad() {
     this.getStorageAddr()
     this.getBuyProduct()
-    console.log(this.data.payOrder)
   },
   // 获取地址信息
   getStorageAddr() {
@@ -26,14 +28,76 @@ Page({
       })
     }
   },
-  // 支付
-  payOrder() {
-    const token = wx.getStorageSync('token')
-    if (!token) {
-      wx.navigateTo({
-        url: '/pages/auth/auth'
+  // 支付--先判断是否有token，没有就先授权获取token
+  async payOrder() {
+    try {
+      const token = wx.getStorageSync('token')
+      if (!token) {
+        wx.navigateTo({
+          url: '/pages/auth/auth'
+        })
+        return
+      }
+      const {totalPrice, payList} = this.data.payOrder
+      const consignee_addr = this.data.address.all
+      const goods = []
+      payList.forEach(val => {
+        goods.push({
+          goods_id: val.goods_id,
+          goods_number: val.num,
+          goods_price: val.goods_price,
+        })
       })
-      return
+      const params = {
+        url: '/my/orders/create',
+        method: 'post',
+        data: {
+          order_price: totalPrice,
+          goods,
+          consignee_addr,
+        }
+      }
+      // 创建订单 获取订单id
+      const {order_number} = await request(params, 'isToken')
+      // 获取支付参数
+      const payParams = {
+        url: '/my/orders/req_unifiedorder',
+        method: 'post',
+        data: {
+          order_number
+        }
+      }
+      // 用订单id获取到微信支付需要的pay
+      const {pay} = await await request(payParams, 'isToken')
+      // 调用微信内置的支付API --- 发起微信支付
+      await requestPayment(pay)
+      // 查询订单---看看订单是否支付成功
+      const orderListParams = {
+        url: '/my/orders/chkOrder',
+        method: 'post',
+        data: {
+          order_number
+        }
+      }
+      const res = await request(orderListParams, 'isToken')
+      console.log(res) // 可以根据这个返回值来判断是否支付成功
+      wx.showToast({
+        title: '支付成功'
+      })
+      // 购买成功后删除本地的购物车的数据
+      const cart = wx.getStorageSync('cart')
+      const newPayList = cart.filter(v => !v.checked)
+      wx.setStorageSync('cart', newPayList)
+      // 支付成功跳转到订单页面
+      wx.navigateTo({
+        url: '/pages/order/order'
+      })
+    } catch (e) {
+      wx.showToast({
+        title: '支付失败',
+        icon: "none"
+      })
+      console.log(e)
     }
   }
 })

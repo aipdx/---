@@ -1,66 +1,37 @@
-// pages/auth/auth.js
+import {wxLogin} from '../../utils/asyncWx'
+import {request} from '../../request/index'
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
-  data: {
-
+  data: {},
+  userInfo: {},
+  onLoad(options) {
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  async getUserInfo(e) {
+    try {
+      this.userInfo = e.detail
+      const {encryptedData, rawData, iv, signature} = e.detail
+      // 获取小程序登陆后的code
+      const {code} = await wxLogin()
+      const params = {
+        url: '/users/wxlogin',
+        data: {
+          encryptedData,
+          rawData,
+          iv,
+          signature,
+          code,
+        },
+        method: 'POST'
+      }
+      // const {token} = await request(params) // 这里需要appId
+      const token = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjIzLCJpYXQiOjE1NjQ3MzAwNzksImV4cCI6MTAwMTU2NDczMDA3OH0.YPt-XeLnjV-_1ITaXGY2FhxmCe4NvXuRnRB8OMCfnPo'
+      // 把token存到本地
+      wx.setStorageSync('token', token)
+      wx.navigateBack({
+        delta: 1 // 1:返回上一级   2:返回上两级
+      })
+    } catch (e) {
+      console.log(e)
+    }
   }
 })
