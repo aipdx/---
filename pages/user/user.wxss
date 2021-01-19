@@ -3,23 +3,20 @@ page {
   height: 100vh;
 }
 .photo_wrap {
-  height: 500rpx;
-  padding-bottom: 50rpx;
+  height: 45vh;
 }
 .photo_wrap .unlogin {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
-  background-color: #ececec;
+  background-color: #FFCC99;
 }
 .photo_wrap .login-wrap {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: center;
-  height: 100%;
-  background-color: #ececec;
+  position: relative;
 }
 .photo_wrap .login-wrap .photo {
   width: 200rpx;
@@ -30,13 +27,28 @@ page {
   justify-content: center;
   align-items: center;
 }
+.photo_wrap .login-wrap .bg-img image {
+  height: 45vh;
+  filter: blur(10rpx);
+}
+.photo_wrap .login-wrap .photo_name_wrap {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
 .photo_wrap .login-wrap .nickname {
   font-weight: bold;
   font-size: 40rpx;
+  margin-top: 30rpx;
+  color: #ffffff;
 }
 .detail_wrap {
   padding: 20rpx;
-  margin-top: -80rpx;
+  position: relative;
+  z-index: 10;
+  top: -90rpx;
 }
 .detail_wrap .info_num_wrap {
   background-color: #fff;
@@ -61,7 +73,7 @@ page {
   color: #666666;
 }
 .detail_wrap .my_order_wrap {
-  margin-top: 30rpx;
+  margin-top: 20rpx;
   background-color: #fff;
 }
 .detail_wrap .my_order_wrap .order_title {
@@ -89,13 +101,13 @@ page {
   color: #666666;
 }
 .detail_wrap .address_wrap {
-  margin-top: 30rpx;
+  margin-top: 20rpx;
   padding: 29rpx;
   background-color: #fff;
 }
 .detail_wrap .tool_wrap {
   background-color: #fff;
-  margin-top: 30rpx;
+  margin-top: 20rpx;
 }
 .detail_wrap .tool_wrap .tool_item {
   display: flex;

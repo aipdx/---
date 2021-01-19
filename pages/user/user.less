@@ -4,24 +4,21 @@ page {
 }
 
 .photo_wrap {
-  height: 500rpx;
-  padding-bottom: 50rpx;
+  height: 45vh;
 
   .unlogin {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
-    background-color: #ececec;
+    background-color: #FFCC99;
   }
 
   .login-wrap {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    align-items: center;
-    height: 100%;
-    background-color: #ececec;
+    position: relative;
 
     .photo {
       width: 200rpx;
@@ -33,16 +30,36 @@ page {
       align-items: center;
     }
 
+    .bg-img {
+      image {
+        height: 45vh;
+        // 高斯模糊
+        filter: blur(10rpx);
+      }
+    }
+
+    .photo_name_wrap {
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+    }
+
     .nickname {
       font-weight: bold;
       font-size: 40rpx;
+      margin-top: 30rpx;
+      color: #ffffff;
     }
   }
 }
 
 .detail_wrap {
   padding: 20rpx;
-  margin-top: -80rpx;
+  position: relative;
+  z-index: 10;
+  top: -90rpx;
 
   .info_num_wrap {
     background-color: #fff;
@@ -72,7 +89,7 @@ page {
   }
 
   .my_order_wrap {
-    margin-top: 30rpx;
+    margin-top: 20rpx;
     background-color: #fff;
 
     .order_title {
@@ -106,14 +123,14 @@ page {
   }
 
   .address_wrap {
-    margin-top: 30rpx;
+    margin-top: 20rpx;
     padding: 29rpx;
     background-color: #fff;
   }
 
   .tool_wrap {
     background-color: #fff;
-    margin-top: 30rpx;
+    margin-top: 20rpx;
 
     .tool_item {
       display: flex;

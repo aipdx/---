@@ -2,14 +2,17 @@
   <!--头像-->
   <view class="photo_wrap">
     <!--未登陆-->
-    <view wx:if="{{false}}" class="unlogin"><!--!userInfo.nickName-->
+    <view wx:if="{{!userInfo.nickName}}" class="unlogin">
       <button type="primary" plain size="mini" open-type="getUserInfo" bindgetuserinfo="getUserInfo">登陆</button>
     </view>
     <view wx:else class="login-wrap">
-      <view class="photo">
-        <image mode="widthFix" src="{{userInfo.avatarUrl}}"></image>
+      <view class="bg-img"><image src="{{userInfo.avatarUrl}}"></image></view>
+      <view class="photo_name_wrap">
+        <view class="photo">
+          <image mode="widthFix" src="{{userInfo.avatarUrl}}"></image>
+        </view>
+        <view class="nickname">{{userInfo.nickName}}</view>
       </view>
-      <view class="nickname">{{userInfo.nickName}}</view>
     </view>
   </view>
   <view class="detail_wrap">
@@ -67,7 +70,7 @@
       <view class="tool_item">
         <view>意见反馈</view>
       </view>
-      <view class="tool_item">
+      <view catchtap='freeTell' class="tool_item">
         <view>联系我们</view>
       </view>
     </view>

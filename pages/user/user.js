@@ -2,18 +2,18 @@ Page({
   data: {
     userInfo: {}
   },
-  onLoad() {
+  onShow() {
     this.getStorageUserInfo()
   },
+  // 点击登录获取用户信息
   getUserInfo(e) {
     const {userInfo} = e.detail
-    console.log(userInfo)
     this.setData({userInfo})
     wx.setStorageSync('userInfo', userInfo)
   },
+  // 获取本地缓存用户信息
   getStorageUserInfo() {
     const userInfo = wx.getStorageSync('userInfo')
-    console.log(userInfo)
     if (userInfo) {
       this.setData({userInfo})
     }
