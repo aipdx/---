@@ -1,74 +1,67 @@
 page {
   padding-bottom: 90rpx;
+  background-color: #f9f9f9;
 }
-
 .address {
+  background-color: #fff;
   padding: 20rpx;
 }
-
 .address .hove-addr {
   font-size: 30rpx;
 }
-
 .address .tel-txt {
   margin-left: 60rpx;
 }
-
 .address .contact-detail {
   display: flex;
   justify-content: space-between;
 }
-
 .address .addr-detail {
   margin-top: 10rpx;
 }
-
+.cart-pro {
+  background-color: #fff;
+  margin-top: 20rpx;
+}
 .cart-pro .cart-title {
   height: 80rpx;
   padding-left: 20rpx;
   display: flex;
   align-items: center;
   font-size: 36rpx;
-  border: 1px solid var(--themeColor);
+  border-bottom: 1px solid var(--themeColor);
   border-left: 0;
   border-right: 0;
 }
-
 .pro-item {
   display: flex;
   padding: 30rpx 15rpx;
   border-bottom: 1px solid #ececec;
 }
-
 .pro-item .checkbox-wrap {
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
 .pro-item .checkbox-wrap checkbox {
   transform: scale(0.8);
 }
-
 .pro-item .img-wrap {
   flex: 2;
   border: 1px solid #ececec;
   text-align: center;
   margin-right: 20rpx;
 }
-
 .pro-item .img-wrap image {
   width: 70%;
 }
-
 .pro-item .pro-r {
   flex: 3;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-
 .pro-item .pro-r .pro-name {
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -76,32 +69,26 @@ page {
   overflow: hidden;
   color: #666666;
 }
-
 .pro-item .pro-r .pro-price-num {
   display: flex;
   justify-content: space-between;
 }
-
 .pro-item .pro-r .pro-price-num .price {
   color: var(--themeColor);
   font-size: 30rpx;
 }
-
 .pro-item .pro-r .num {
   display: flex;
 }
-
 .pro-item .pro-r .num .number {
   padding: 5rpx 15rpx;
   text-align: center;
 }
-
 .pro-item .pro-r .num .btn {
   padding: 5rpx 15rpx;
   text-align: center;
   border: 1px solid #ececec;
 }
-
 .calc-wrap {
   height: 90rpx;
   display: flex;
@@ -114,31 +101,25 @@ page {
   background-color: #fff;
   border-top: 1px solid #dddddd;
 }
-
 .calc-wrap .checkbox-all {
   flex: 3;
   display: flex;
   align-items: center;
 }
-
 .calc-wrap .checkbox-all checkbox {
   transform: scale(0.6);
 }
-
 .calc-wrap .heji-txt {
   flex: 2;
   font-size: 30rpx;
   text-align: right;
 }
-
 .calc-wrap .heji-txt .price-txt {
   color: var(--themeColor);
 }
-
 .calc-wrap .heji-txt .freight-txt {
   font-size: 24rpx;
 }
-
 .calc-wrap .close-account {
   margin-left: 10rpx;
   flex: 2;
@@ -150,7 +131,6 @@ page {
   align-items: center;
   height: 100%;
 }
-
 .empty-cart {
   display: flex;
   flex-direction: column;
@@ -158,11 +138,9 @@ page {
   text-align: center;
   padding-top: 30rpx;
 }
-
 .empty-cart .empty-img image {
   width: 50%;
 }
-
 .empty-cart .empty-txt {
   margin-top: 20rpx;
   font-size: 40rpx;

@@ -22,7 +22,7 @@
   </view>
   <!--商品信息-->
   <view class="cart-pro">
-    <view class="cart-title">购物车</view>
+    <view class="cart-title">选购商品</view>
     <!--列表--有数据-->
     <view wx:if="{{cartList.length}}" class="pro-list">
       <view wx:for="{{cartList}}" wx:key="goods_id" class="pro-item">
