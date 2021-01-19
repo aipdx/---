@@ -1,0 +1,125 @@
+page {
+  background-color: #dddddd;
+  height: 100vh;
+}
+
+.photo_wrap {
+  height: 500rpx;
+  padding-bottom: 50rpx;
+
+  .unlogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: #ececec;
+  }
+
+  .login-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    background-color: #ececec;
+
+    .photo {
+      width: 200rpx;
+      height: 200rpx;
+      border-radius: 50%;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .nickname {
+      font-weight: bold;
+      font-size: 40rpx;
+    }
+  }
+}
+
+.detail_wrap {
+  padding: 20rpx;
+  margin-top: -80rpx;
+
+  .info_num_wrap {
+    background-color: #fff;
+    padding: 20rpx 0;
+
+    .info_item_wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .info_num_item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+
+      .num {
+        color: var(--themeColor);
+      }
+
+      .num-txt {
+        color: #666666;
+      }
+    }
+  }
+
+  .my_order_wrap {
+    margin-top: 30rpx;
+    background-color: #fff;
+
+    .order_title {
+      padding: 20rpx;
+      border-bottom: 1px solid #ececec;
+    }
+
+    .icon_wrap {
+      padding: 20rpx 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .icon_item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .icon {
+        color: var(--themeColor);
+        font-size: 38rpx;
+      }
+
+      .icon_txt {
+        color: #666666;
+      }
+    }
+  }
+
+  .address_wrap {
+    margin-top: 30rpx;
+    padding: 29rpx;
+    background-color: #fff;
+  }
+
+  .tool_wrap {
+    background-color: #fff;
+    margin-top: 30rpx;
+
+    .tool_item {
+      display: flex;
+      justify-content: space-between;
+      padding: 20rpx;
+      border-bottom: 1px solid #ececec;
+    }
+  }
+}
