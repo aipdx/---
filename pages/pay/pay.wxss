@@ -1,1 +1,117 @@
-/* pages/pay/pay.wxss */
+page {
+  padding-bottom: 90rpx;
+  background-color: #f9f9f9;
+  height: 100vh;
+}
+.address {
+  background-color: #fff;
+  padding: 20rpx;
+  font-size: 30rpx;
+}
+.address .tel-txt {
+  margin-left: 60rpx;
+}
+.address .contact-detail {
+  display: flex;
+  justify-content: space-between;
+}
+.address .addr-detail {
+  margin-top: 10rpx;
+}
+.buy-pro-wrap {
+  background-color: #fff;
+  margin-top: 20rpx;
+}
+.buy-pro-wrap .pro-title {
+  height: 80rpx;
+  padding-left: 20rpx;
+  display: flex;
+  align-items: center;
+  font-size: 36rpx;
+  border-bottom: 1px solid var(--themeColor);
+  border-left: 0;
+  border-right: 0;
+}
+.pro-list-wrap .pro-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx;
+  border-bottom: 1px solid #ececec;
+}
+.pro-list-wrap .pro-img {
+  flex: 2;
+  border: 1px solid #ececec;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.pro-list-wrap .pro-img image {
+  width: 60%;
+}
+.pro-list-wrap .pro-right {
+  flex: 3;
+  margin-left: 30rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.pro-list-wrap .pro-right .goods-name {
+  color: #666666;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.pro-list-wrap .pro-right .price-wrap {
+  display: flex;
+  justify-content: space-between;
+}
+.pro-list-wrap .pro-right .price-wrap .price-txt {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: var(--themeColor);
+}
+.pro-list-wrap .pro-right .price-wrap .num-txt {
+  color: #666666;
+}
+.tool_bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  height: 90rpx;
+}
+.tool_bottom .tool_wrap {
+  display: flex;
+  height: 100%;
+}
+.tool_bottom .buy_num_wrap {
+  flex: 3;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  text-align: right;
+}
+.tool_bottom .buy_num_wrap .price_txt {
+  font-size: 36rpx;
+  color: #666666;
+}
+.tool_bottom .buy_num_wrap .price_txt text {
+  font-weight: bold;
+  color: var(--themeColor);
+}
+.tool_bottom .buy_num_wrap .yunfei_txt {
+  color: #666666;
+}
+.tool_bottom .pay_btn {
+  flex: 1;
+  background-color: var(--themeColor);
+  font-size: 36rpx;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  margin-left: 20rpx;
+}

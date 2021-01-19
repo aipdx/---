@@ -83,8 +83,8 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "pages/goods_detail/goods_detail",
+					"id": 2,
+					"name": "商品详情",
 					"pathName": "pages/goods_detail/goods_detail",
 					"query": "goods_id=43986",
 					"scene": null
@@ -93,6 +93,20 @@
 					"id": -1,
 					"name": "购物车",
 					"pathName": "pages/cart/cart",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "支付",
+					"pathName": "pages/pay/pay",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "支付授权",
+					"pathName": "pages/auth/auth",
 					"query": "",
 					"scene": null
 				}

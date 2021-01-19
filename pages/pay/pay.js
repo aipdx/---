@@ -1,66 +1,39 @@
-// pages/pay/pay.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    address: {},
+    payOrder: []
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  onLoad() {
+    this.getStorageAddr()
+    this.getBuyProduct()
+    console.log(this.data.payOrder)
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  // 获取地址信息
+  getStorageAddr() {
+    const address = wx.getStorageSync('address')
+    if (address) {
+      this.setData({
+        address
+      })
+    }
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  // 获取选购商品信息
+  getBuyProduct() {
+    const payOrder = wx.getStorageSync('payOrder')
+    if (payOrder) {
+      this.setData({
+        payOrder
+      })
+    }
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  // 支付
+  payOrder() {
+    const token = wx.getStorageSync('token')
+    if (!token) {
+      wx.navigateTo({
+        url: '/pages/auth/auth'
+      })
+      return
+    }
   }
 })

@@ -1,2 +1,38 @@
-<!--pages/pay/pay.wxml-->
-<text>pages/pay/pay.wxml</text>
+<view>
+  <!--地址-->
+  <view class="address">
+    <view class="contact-detail">
+      <text>收货人：{{address.userName}}</text>
+      <text class="tel-txt">{{address.telNumber}}</text>
+    </view>
+    <view class="addr-detail">地址：{{address.all}}</view>
+  </view>
+  <!--商品列表-->
+  <view class="buy-pro-wrap">
+    <view class="pro-title">选购商品列表</view>
+    <view class="pro-list-wrap">
+      <view wx:for="{{payOrder.payList}}" wx:key="goods_id"  class="pro-item">
+        <view class="pro-img">
+          <image mode="widthFix" src="{{item.goods_small_logo}}"></image>
+        </view>
+        <view class="pro-right">
+          <view class="goods-name">{{item.goods_name}}</view>
+          <view class="price-wrap">
+            <view class="price-txt">￥{{item.goods_price}}</view>
+            <view class="num-txt">X {{item.num}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!--底部工具栏-->
+  <view class="tool_bottom">
+    <view class="tool_wrap">
+      <view class="buy_num_wrap">
+        <view class="price_txt">合计：<text>￥{{payOrder.totalPrice}}</text></view>
+        <view class="yunfei_txt">包含运费</view>
+      </view>
+      <view class="pay_btn" bindtap="payOrder">支付({{payOrder.buyTotal}})</view>
+    </view>
+  </view>
+</view>
