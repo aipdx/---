@@ -1,0 +1,42 @@
+<!--
+  使用async await
+-->
+<view class="cates">
+  <SearchInput></SearchInput>
+  <!--分类-->
+  <view class="cate-wrap">
+    <!--left-->
+    <scroll-view scroll-y class="left-menu">
+      <view
+        class="menu-item {{index===leftIndex ? 'active':''}}"
+        wx:for="{{leftMenuList}}"
+        data-index="{{index}}"
+        bindtap="handleMenu"
+        wx:key="*this">
+        {{item}}
+      </view>
+    </scroll-view>
+    <!--right-->
+    <scroll-view scroll-y scroll-top="{{scrollTop}}" class="right-menu">
+      <view
+        class="er-wrap"
+        wx:for="{{rightMenuList}}"
+        wx:key="cat_id">
+        <view class="cate-title">{{item.cat_name}}</view>
+        <!--小分类-->
+        <view class="r-menu-wrap">
+          <navigator
+            class="r-menu-item"
+            wx:for="{{item.children}}"
+            wx:for-item="child"
+            wx:key="cat_id"
+            url="/pages/goods_list/goods_list?cid={{child.cat_id}}"
+            wx:for-index="i">
+            <image mode="widthFix" src="{{child.cat_icon}}"></image>
+            <view class="goods-name">{{child.cat_name}}</view>
+          </navigator>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

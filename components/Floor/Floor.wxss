@@ -1,0 +1,27 @@
+.floor-wrap {
+  margin-top: 20rpx;
+}
+.floor-item {
+  margin-top: 20rpx;
+}
+.floor-item .title-img {
+  width: 100%;
+}
+.floor-item .list-wrap {
+  overflow: hidden;
+}
+.floor-item .list-wrap navigator {
+  float: left;
+  width: 33.33%;
+  border-left: 10rpx solid #fff;
+}
+.floor-item .list-wrap navigator:nth-child(2),
+.floor-item .list-wrap navigator:nth-child(3) {
+  border-bottom: 3rpx solid #fff;
+}
+.floor-item .list-wrap navigator:nth-last-child(-n+4) image {
+  height: 25.92vw;
+}
+.floor-item .list-wrap navigator image {
+  width: 100%;
+}

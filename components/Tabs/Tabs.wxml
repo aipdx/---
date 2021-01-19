@@ -1,0 +1,15 @@
+<view>
+  <view class="tabs-wrap">
+    <view
+      wx:for="{{tabsList}}"
+      wx:key="id"
+      data-index="{{index}}"
+      bindtap="tabsChange"
+      class="tabs-item {{index===currentIndex?'active':''}}">
+      {{item.name}}
+    </view>
+  </view>
+  <view class="tabs-content">
+    <slot></slot>
+  </view>
+</view>

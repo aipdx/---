@@ -1,0 +1,36 @@
+.floor-wrap {
+  margin-top: 20rpx;
+}
+
+.floor-item {
+  margin-top: 20rpx;
+
+  .title-img {
+    width: 100%;
+  }
+
+  .list-wrap {
+    overflow: hidden;
+
+    navigator {
+      float: left;
+      width: 33.33%;
+      border-left: 10rpx solid #fff;
+
+      &:nth-child(2),
+      &:nth-child(3) {
+        border-bottom: 3rpx solid #fff;
+      }
+
+      &:nth-last-child(-n+4) {
+        image {
+          height: 25.92vw;
+        }
+      }
+
+      image {
+        width: 100%;
+      }
+    }
+  }
+}

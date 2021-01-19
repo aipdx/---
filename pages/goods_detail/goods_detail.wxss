@@ -1,0 +1,93 @@
+page {
+  background-color: #f9f9f9;
+  padding-bottom: 90rpx;
+}
+.swiper-wrap swiper {
+  height: 70vw;
+  text-align: center;
+}
+.swiper-wrap swiper image {
+  width: 60%;
+}
+.price-title {
+  width: 100%;
+  background-color: #fff;
+  padding: 15rpx;
+}
+.price-title .price-txt {
+  color: var(--themeColor);
+  font-size: 30rpx;
+  font-weight: bold;
+}
+.price-title .title-collect {
+  display: flex;
+}
+.price-title .title-collect .title {
+  flex: 3;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  padding-right: 15rpx;
+  border-right: 2px solid #ececec;
+  color: #666666;
+}
+.price-title .title-collect .collect {
+  flex: 1;
+  color: #666666;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.detail-wrap {
+  margin-top: 15px;
+  background-color: #fff;
+  padding: 20rpx;
+}
+.detail-wrap .rich-title {
+  color: var(--themeColor);
+  font-size: 36rpx;
+  width: 100%;
+  border-bottom: 2px solid #ececec;
+  padding-bottom: 10rpx;
+  font-weight: bold;
+}
+.tool-wrap {
+  border-top: 1px solid #ececec;
+  display: flex;
+  position: fixed;
+  background-color: #fff;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  height: 90rpx;
+}
+.tool-wrap .icon-tool {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 24rpx;
+  position: relative;
+}
+.tool-wrap .icon-tool button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+}
+.tool-wrap .cart-txt,
+.tool-wrap .buy-text {
+  flex: 2;
+  background-color: #ffa500;
+  color: #ffffff;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+.tool-wrap .buy-text {
+  background-color: var(--themeColor);
+}

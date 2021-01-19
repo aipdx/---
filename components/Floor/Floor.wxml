@@ -1,0 +1,20 @@
+<view class="floor-wrap">
+  <view
+    wx:for="{{floorList}}"
+    wx:key="index"
+    wx:for-index="index"
+    wx:for-item="floor"
+    class="floor-item">
+    <image mode="widthFix" class="title-img" src="{{floor.floor_title.image_src}}"></image>
+    <view class="list-wrap">
+      <navigator
+        wx:for="{{floor.product_list}}"
+        wx:for-item="product"
+        wx:for-index="i"
+        wx:key="name"
+        url="{{product.navigator_url}}">
+        <image mode="{{i===0? 'widthFix': 'scaleToFill'}}" src="{{product.image_src}}"></image>
+      </navigator>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,30 @@
+<!--
+  封装tabs组件
+  下拉刷新、上拉加载更多
+-->
+<view>
+  <!--搜索-->
+  <SearchInput></SearchInput>
+  <!--tab-->
+  <Tabs tabsList="{{tabsList}}" bindhandleTabs="handleTabs">
+    <!--商品列表-->
+    <view class="pro-wrap">
+      <navigator
+        wx:for="{{proList}}"
+        wx:key="goods_id"
+        hover-class="none"
+        url="/pages/goods_detail/goods_detail?goods_id={{item.goods_id}}"
+        class="pro-item">
+        <view class="pro-img">
+          <image
+            mode="widthFix"
+            src="{{item.goods_small_logo?item.goods_small_logo:'https://api-hmugo-web.itheima.net/pyg/banner1.png'}}"/>
+        </view>
+        <view class="pro-txt">
+          <view class="txt-top">{{item.goods_name}}</view>
+          <view class="txt-price">￥{{item.goods_price}}</view>
+        </view>
+      </navigator>
+    </view>
+  </Tabs>
+</view>

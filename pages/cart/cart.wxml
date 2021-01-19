@@ -1,0 +1,70 @@
+<!--
+  获取用户对小程序所授予获取地址的权限状态 scope
+  获取用户的收货地址
+
+  购物车：全选，单个勾选，增加减少购买数量，结算金额
+-->
+<view>
+  <!--添加地址-->
+  <view class="address">
+    <!--没有地址-->
+    <view wx:if="{{!address.userName}}" class="no-addr">
+      <button bindtap="getAddress" type="primary" plain>获取收货地址</button>
+    </view>
+    <!--有地址-->
+    <view wx:else class="hove-addr">
+      <view class="contact-detail">
+        <text>收货人：{{address.userName}}</text>
+        <text class="tel-txt">{{address.telNumber}}</text>
+      </view>
+      <view class="addr-detail">地址：{{address.all}}</view>
+    </view>
+  </view>
+  <!--商品信息-->
+  <view class="cart-pro">
+    <view class="cart-title">购物车</view>
+    <!--列表--有数据-->
+    <view wx:if="{{cartList.length}}" class="pro-list">
+      <view wx:for="{{cartList}}" wx:key="goods_id" class="pro-item">
+        <view class="checkbox-wrap">
+          <checkbox-group data-checked="{{item.checked}}" data-index="{{index}}" bindchange="singleCheck">
+            <checkbox checked="{{item.checked}}" value="{{item.goods_id}}"/>
+          </checkbox-group>
+        </view>
+        <navigator hover-class="none" url="/pages/goods_detail/goods_detail?goods_id={{item.goods_id}}" class="img-wrap">
+          <image mode="widthFix" src="{{item.goods_small_logo}}"/>
+        </navigator>
+        <view class="pro-r">
+          <navigator hover-class="none" url="/pages/goods_detail/goods_detail?goods_id={{item.goods_id}}" class="pro-name">{{item.goods_name}}</navigator>
+          <view class="pro-price-num">
+            <view class="price">￥{{item.goods_price}}</view>
+            <view class="num">
+              <view class="btn" data-num="{{-1}}" data-index="{{index}}" bindtap="changeBuyNum">-</view>
+              <view class="number">{{item.num}}</view>
+              <view class="btn" data-num="{{1}}" bindtap="changeBuyNum" data-index="{{index}}">+</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!--没有数据-->
+    <view wx:else class="empty-cart">购物车空空如也~</view>
+  </view>
+  <!--底部结算-->
+  <view class="calc-wrap">
+    <view class="checkbox-all">
+      <checkbox-group bindchange="handleCheckAll">
+        <checkbox id="all" checked="{{checkedAll}}"/>
+        <label for="all">全选</label>
+      </checkbox-group>
+    </view>
+    <view class="heji-txt">
+      <view>
+        <text>合计：</text>
+        <text class="price-txt">￥{{totalPrice}}</text>
+      </view>
+      <view class="freight-txt">包含运费</view>
+    </view>
+    <view class="close-account" bindtap="closeAccount">结算({{buyTotal}})</view>
+  </view>
+</view>

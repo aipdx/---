@@ -1,0 +1,18 @@
+@import "./styles/icon.wxss";
+/*初始化样式，小程序不支持*  */
+page, view, text, swiper, swiper-item, image, navigator {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*主题颜色*/
+page {
+  --themeColor: #eb4450;
+  /*字体大小  假设设计稿是375px 1px = 2rpx  14px=28rpx*/
+  font-size: 28rpx;
+}
+
+image {
+  width: 100%;
+}

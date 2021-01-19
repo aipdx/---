@@ -1,0 +1,55 @@
+<!--
+  button隐藏，用view来代替button,是button的宽高等于父元素就可以了
+  点击预览大图:自带功能
+  加入购物车功能
+-->
+<view>
+  <!--轮播图-->
+  <view class="swiper-wrap">
+    <swiper indicator-dots circular>
+      <swiper-item wx:for="{{detailList.pics}}" wx:key="pics_id">
+        <image data-src="{{item.pics_big}}" bindtap="previewImg" mode="widthFix" src="{{item.pics_mid}}"></image>
+      </swiper-item>
+    </swiper>
+  </view>
+  <!--价格、标题、收藏-->
+  <view class="price-title">
+    <view class="price-txt">￥{{detailList.goods_price}}</view>
+    <view class="title-collect">
+      <view class="title">{{detailList.goods_name}}</view>
+      <view class="collect">
+        <text class="iconfont icon-collection-b"></text>
+        <text>收藏</text>
+      </view>
+    </view>
+  </view>
+  <!--图文详情-->
+  <view class="detail-wrap">
+    <view class="rich-title">图文详情</view>
+    <rich-text class="rich-text" nodes="{{detailList.goods_introduce}}"></rich-text>
+  </view>
+  <!--预览大图弹窗-->
+  <!--底部工具栏-->
+  <view class="tool-wrap">
+    <view class="icon-tool">
+      <view class="iconfont icon-kefu"></view>
+      <view>联系客服</view>
+      <button open-type="contact"></button>
+    </view>
+    <view class="icon-tool">
+      <view class="iconfont icon-fenxiang"></view>
+      <view>分享</view>
+      <button open-type="share"></button>
+    </view>
+    <navigator hover-class="none" url="/pages/cart/cart" open-type="switchTab" class="icon-tool">
+      <view class="iconfont icon-gouwuche"></view>
+      <view>购物车</view>
+    </navigator>
+    <view bindtap="addToCart" class="icon-tool cart-txt">
+      加入购物车
+    </view>
+    <view bindtap="buy" class="icon-tool buy-text">
+      立即购买
+    </view>
+  </view>
+</view>

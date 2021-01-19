@@ -1,0 +1,19 @@
+.swiper-wrap swiper {
+  height: 340rpx;
+}
+.swiper-wrap image {
+  width: 100%;
+}
+.tabs-wrap {
+  margin-top: 20rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.tabs-wrap navigator {
+  flex: 1;
+  padding: 20rpx;
+}
+.tabs-wrap image {
+  width: 100%;
+}

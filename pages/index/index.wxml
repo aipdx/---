@@ -1,0 +1,30 @@
+<view>
+  <SearchInput></SearchInput>
+  <!--轮播图-->
+  <view class="swiper-wrap">
+    <swiper indicator-dots circular autoplay>
+      <swiper-item
+        wx:for="{{swiperList}}"
+        wx:key="goods_id">
+        <navigator hover-class="none" url="{{item.navigator_url}}" open-type="{{item.open_type}}">
+          <image mode="widthFix" src="{{item.image_src}}"></image>
+        </navigator>
+      </swiper-item>
+    </swiper>
+  </view>
+  <!--tabs-->
+  <view class="tabs-wrap">
+    <navigator
+      hover-class="none"
+      wx:for="{{tabsList}}"
+      wx:key="name"
+      open-type="{{item.open_type}}"
+      url="{{item.navigator_url}}">
+      <image mode="widthFix" src="{{item.image_src}}"></image>
+    </navigator>
+  </view>
+  <!--时尚女装-->
+  <view class="clothes-wrap">
+    <Floor floorList="{{floorList}}"></Floor>
+  </view>
+</view>
