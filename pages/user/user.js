@@ -1,9 +1,11 @@
 Page({
   data: {
-    userInfo: {}
+    userInfo: {},
+    collectNum: 0
   },
   onShow() {
     this.getStorageUserInfo()
+    this.getCollectNum()
   },
   // 点击登录获取用户信息
   getUserInfo(e) {
@@ -17,6 +19,13 @@ Page({
     if (userInfo) {
       this.setData({userInfo})
     }
+  },
+  // 获取收藏的商品数
+  getCollectNum() {
+    const collectList = wx.getStorageSync('collectGoods') || []
+    this.setData({
+      collectNum: collectList.length
+    })
   },
   // 联系客服
   freeTell() {

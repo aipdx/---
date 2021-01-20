@@ -3,13 +3,15 @@ import {request} from '../../request/index'
 Page({
   data: {
     detailList: {},
-    isCollect: false
+    isCollect: false // 商品是否被收藏
   },
   params: {
     goods_id: ''
   },
   GoodsInfo: {},
   onShow() {
+    // getCurrentPages() 函数用于获取当前页面栈的实例，
+    // 以数组形式按栈的顺序给出，第一个元素为首页，最后一个元素为当前页面。
     const pages = getCurrentPages()
     this.params.goods_id = pages.length && pages[pages.length - 1].options.goods_id
     this.getDetailList()
@@ -79,52 +81,42 @@ Page({
     const collectGoods = wx.getStorageSync('collectGoods') || []
     if (collectGoods.length) {
       const goodsIndex = collectGoods.findIndex(v => this.params.goods_id == v.goods_id)
-      if (goodsIndex !== -1) {
-        this.setData({
-          isCollect: true
-        })
-      } else {
-        this.setData({
-          isCollect: false
-        })
-      }
+      this.setData({
+        isCollect: goodsIndex !== -1 ? true : false
+      })
     }
   },
-  // 收藏
+  // 点击收藏
   collectGoods() {
     const collectGoods = wx.getStorageSync('collectGoods') || []
-    if (collectGoods.length) {
-      const goodsIndex = collectGoods.findIndex(v => this.params.goods_id == v.goods_id)
-      if (goodsIndex !== -1) { // 存在
-        this.cancelSuccess(collectGoods, goodsIndex)
-      } else {
-        this.collectSuccess(collectGoods)
-      }
-    } else { // 第一次点
+    const goodsIndex = collectGoods.findIndex(v => this.params.goods_id == v.goods_id)
+    if (goodsIndex !== -1) { // 存在
+      this.cancelCollect(collectGoods, goodsIndex)
+    } else {
       this.collectSuccess(collectGoods)
     }
   },
   // 收藏成功
   collectSuccess(collectGoods) {
     this.setData({
-      isCollect: true
+      isCollect: true,
     })
     collectGoods.push(this.GoodsInfo)
     wx.setStorageSync('collectGoods', collectGoods)
     wx.showToast({
-      title: '收藏成功'
+      title: '收藏成功',
+      mask: true
     })
   },
   // 取消收藏
-  cancelSuccess(collectGoods, goodsIndex) {
-    if (goodsIndex !== -1) {
-      collectGoods.splice(goodsIndex, 1)
-    }
+  cancelCollect(collectGoods, goodsIndex) {
+    collectGoods.splice(goodsIndex, 1)
     this.setData({
       isCollect: false
     })
     wx.showToast({
-      title: '取消成功'
+      title: '取消成功',
+      mask: true
     })
     wx.setStorageSync('collectGoods', collectGoods)
   }
