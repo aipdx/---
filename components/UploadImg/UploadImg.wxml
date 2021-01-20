@@ -1,6 +1,6 @@
 <view class="img_wrap">
-  <view class="img_item">
-    <image mode="widthFix" src=""></image>
-    <icon type="clear" size="20" color="#eb4450"></icon>
+  <view wx:for="{{imageFiles}}" wx:key="*this" class="img_item">
+    <image mode="widthFix" src="{{item}}"></image>
+    <icon type="clear" size="20" color="#eb4450" data-index="{{index}}" bindtap="delImg"></icon>
   </view>
 </view>

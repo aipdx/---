@@ -1,3 +1,7 @@
+<!--
+  上传图片并展示
+  提交表单
+-->
 <Tabs tabsList="{{tabsList}}" bindhandleTabs="handleTabs">
   <view class="feedback_wrap">
     <!--问题种类-->
@@ -12,15 +16,17 @@
     </view>
     <!--问题描述-->
     <view class="feedback_detail">
-      <textarea placeholder="请描述下您的问题"></textarea>
+      <textarea placeholder="请描述下您的问题" value="{{detailValue}}" bindinput="getDetailValue"></textarea>
       <!--上传图片-->
       <view class="fd_tool">
-        <button>+</button>
-        <UploadImg></UploadImg>
+        <button bindtap="handleChooseImg">+</button>
+        <view wx:if="{{imageFiles.length}}" class="upload_img_wrap">
+          <UploadImg imageFiles="{{imageFiles}}" binddelImgByIndex="delImgByIndex"></UploadImg>
+        </view>
       </view>
     </view>
     <view class="btn_wrap">
-      <button class="submit_btn" type="warn">
+      <button class="submit_btn" type="warn" bindtap="submitInfo">
         <icon type="success_no_circle" size="23" color="white"></icon>
         提交
       </button>

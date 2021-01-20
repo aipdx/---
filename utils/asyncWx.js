@@ -68,3 +68,18 @@ export const requestPayment = (pay) => {
     })
   })
 }
+
+// 上传图片
+export const uploadFile = (params) => {
+  return new Promise((resolve, reject) => {
+    wx.uploadFile({
+      ...params,
+      success(res) {
+        resolve(res)
+      },
+      fail(err) {
+        reject(err)
+      }
+    })
+  })
+}
