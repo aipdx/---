@@ -6,7 +6,7 @@
       <swiper-item
         wx:for="{{swiperList}}"
         wx:key="goods_id">
-        <navigator hover-class="none" url="{{item.navigator_url}}" open-type="{{item.open_type}}">
+        <navigator hover-class="none" url="/pages/goods_detail/goods_detail?goods_id={{item.goods_id}}" open-type="{{item.open_type}}">
           <image mode="widthFix" src="{{item.image_src}}"></image>
         </navigator>
       </swiper-item>
@@ -19,7 +19,7 @@
       wx:for="{{tabsList}}"
       wx:key="name"
       open-type="{{item.open_type}}"
-      url="{{item.navigator_url}}">
+      url="{{index===0?'/pages/category/category':''}}">
       <image mode="widthFix" src="{{item.image_src}}"></image>
     </navigator>
   </view>
