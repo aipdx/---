@@ -1,2 +1,30 @@
-<!--pages/search/search.wxml-->
-<text>pages/search/search.wxml</text>
+<!--
+  实现搜索：防抖
+-->
+<view class="search_fixed">
+  <view class="search_wrap">
+    <view class="input_left">
+      <!--bindconfirm="handleSearch"-->
+      <input
+        bindinput="handleSearch"
+        value="{{keyword}}"
+        placeholder="搜索"
+        confirm-type="search"
+        placeholder-class="search_placeholder"/>
+      <view class="weui_icon_clear" wx:if="{{keyword}}" bindtap="clearInput">
+        <icon type="clear" size="16"></icon>
+      </view>
+    </view>
+    <view class="cancel_right" bindtap="cancelSearch">取消</view>
+  </view>
+</view>
+<!--列表-->
+<view class="search_list_wrap">
+  <navigator
+    url="/pages/goods_detail/goods_detail?goods_id={{item.goods_id}}"
+    wx:for="{{searchList}}"
+    wx:key="goods_id"
+    class="search_item">
+    {{item.goods_name}}
+  </navigator>
+</view>
