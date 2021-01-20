@@ -1,0 +1,48 @@
+page {
+  background-color: #f9f9f9;
+}
+
+.collect_wrap {
+  margin-top: 20rpx;
+
+  .collect_item {
+    background-color: #fff;
+    margin-top: 20rpx;
+    display: flex;
+    padding: 20rpx;
+    justify-content: space-between;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    .collect_img {
+      flex: 2;
+
+      image {
+        width: 60%;
+      }
+    }
+
+    .collect_name_price {
+      flex: 3;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-left: 20rpx;
+    }
+
+    .goods_name {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+      color: #666666;
+    }
+
+    .goods_price {
+      color: var(--themeColor);
+      font-size: 30rpx;
+    }
+  }
+}
