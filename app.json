@@ -12,7 +12,9 @@
     "pages/feedback/feedback",
     "pages/login/login",
     "pages/auth/auth",
-    "pages/pay/pay"
+    "pages/pay/pay",
+    "pages/address/address",
+    "pages/address_manage/address_manage"
   ],
   "tabBar": {
     "color": "#999999",

@@ -59,7 +59,7 @@
     </view>
   </view>
   <!--收货地址管理-->
-  <view class="address_wrap">收货地址管理</view>
+  <navigator url="/pages/address/address" hover-class="none" class="address_wrap">收货地址管理</navigator>
   <!--联系客服-->
   <view class="tool_wrap">
     <view catchtap='freeTell' class="tool_item">

@@ -1,0 +1,125 @@
+page {
+  background-color: #dddddd;
+  height: 100vh;
+  padding-bottom: 90rpx;
+}
+
+.addr_wrap {
+  .no_addr_wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20rpx;
+
+    navigator {
+      color: #06ae56;
+      font-size: 40rpx;
+      width: 70%;
+      border-radius: 15rpx;
+      height: 90rpx;
+      border: 1px solid #06ae56;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+    }
+  }
+
+  .have_addr_wrap {
+    padding: 20rpx;
+
+    .addr_item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #fff;
+      margin-top: 15rpx;
+      padding: 30rpx 10rpx;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    .checkbox_wrap {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      checkbox {
+        transform: scale(0.6);
+      }
+    }
+
+    .addr_detail {
+      flex: 8;
+      margin-left: 15rpx;
+
+      .addr_name {
+        color: #666666;
+      }
+
+      .tel_txt {
+        margin-left: 20rpx;
+      }
+
+      .addr_txt_wrap {
+        color: #666666;
+        margin-top: 15rpx;
+        display: flex;
+
+        .addr_txt {
+          flex-shrink: 0;
+        }
+      }
+    }
+
+    .edit_wrap {
+      flex: 1;
+      color: #666666;
+      font-size: 30rpx;
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+
+.add_addr_tool {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  height: 90rpx;
+  padding: 0 20rpx;
+
+  .tool_wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+
+    .add_icon {
+      width: 30rpx;
+      height: 30rpx;
+      border-radius: 50%;
+      line-height: 29rpx;
+      text-align: center;
+      background-color: var(--themeColor);
+      color: #ffffff;
+    }
+
+    .add_txt {
+      flex: 30;
+      margin-left: 15rpx;
+      color: #666666;
+    }
+
+    .jiantou_icon {
+      flex: 1;
+      color: #acacac;
+      font-size: 36rpx;
+    }
+  }
+}

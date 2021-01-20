@@ -1,0 +1,34 @@
+<view class="addr_wrap">
+  <!--没有地址-->
+  <view wx:if="{{!address.length}}" class="no_addr_wrap">
+    <navigator url="/pages/address_manage/address_manage" hover-class="none">新增地址</navigator>
+  </view>
+  <!--有地址-->
+  <view wx:else class="have_addr_wrap">
+    <view wx:for="{{address}}" class="addr_item">
+      <view class="checkbox_wrap">
+        <checkbox-group>
+          <checkbox></checkbox>
+        </checkbox-group>
+      </view>
+      <view class="addr_detail">
+        <view class="addr_name">
+          <text class="name_txt">{{item.userName}}</text>
+          <text class="tel_txt">{{item.telNumber}}</text>
+        </view>
+        <view class="addr_txt_wrap">
+          <view class="addr_txt">地址：</view>
+          <view class="detail_txt">{{item.all}}</view>
+        </view>
+      </view>
+      <view class="edit_wrap icon-xiugai iconfont"></view>
+    </view>
+  </view>
+</view>
+<view class="add_addr_tool">
+  <navigator url="/pages/address_manage/address_manage" hover-class="none" class="tool_wrap">
+    <view class="add_icon">+</view>
+    <view class="add_txt">新增个人地址</view>
+    <view class="jiantou_icon">></view>
+  </navigator>
+</view>
