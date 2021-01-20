@@ -15,7 +15,7 @@
         <icon type="clear" size="16"></icon>
       </view>
     </view>
-    <view class="cancel_right" bindtap="cancelSearch">取消</view>
+    <view class="cancel_right" wx:if="{{keyword}}" bindtap="cancelSearch">取消</view>
   </view>
 </view>
 <!--列表-->
