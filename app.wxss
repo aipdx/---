@@ -1,6 +1,6 @@
 @import "./styles/icon.wxss";
 /*初始化样式，小程序不支持*  */
-page, view, text, swiper, swiper-item, image, navigator {
+page, view, text, swiper, swiper-item, image, navigator,textarea {
   margin: 0;
   padding: 0;
   box-sizing: border-box;

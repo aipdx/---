@@ -1,2 +1,29 @@
-<!--pages/feedback/feedback.wxml-->
-<text>pages/feedback/feedback.wxml</text>
+<Tabs tabsList="{{tabsList}}" bindhandleTabs="handleTabs">
+  <view class="feedback_wrap">
+    <!--问题种类-->
+    <view class="feedback_type">
+      <view class="type_title">问题的种类</view>
+      <view class="type_list">
+        <view class="type_item">功能建议</view>
+        <view class="type_item">购买遇到的问题</view>
+        <view class="type_item">性能问题</view>
+        <view class="type_item">其他</view>
+      </view>
+    </view>
+    <!--问题描述-->
+    <view class="feedback_detail">
+      <textarea placeholder="请描述下您的问题"></textarea>
+      <!--上传图片-->
+      <view class="fd_tool">
+        <button>+</button>
+        <UploadImg></UploadImg>
+      </view>
+    </view>
+    <view class="btn_wrap">
+      <button class="submit_btn" type="warn">
+        <icon type="success_no_circle" size="23" color="white"></icon>
+        提交
+      </button>
+    </view>
+  </view>
+</Tabs>

@@ -1,66 +1,20 @@
-// pages/feedback/feedback.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    tabsList: [
+      {id: 0, name: '体验问题', checked: true},
+      {id: 1, name: '商品、商家投诉', checked: false}
+    ],
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  onLoad(options) {},
+  handleTabs(e) {
+    const index = e.detail
+    this.changeTabsByIndex(index)
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  // tabs状态修改公共代码
+  changeTabsByIndex(index) {
+    const {tabsList} = this.data
+    tabsList.forEach(v => v.checked = false)
+    tabsList[index].checked = true
+    this.setData({tabsList})
   }
 })
