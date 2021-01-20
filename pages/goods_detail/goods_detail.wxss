@@ -40,6 +40,9 @@ page {
   justify-content: center;
   align-items: center;
 }
+.price-title .title-collect .collectActive {
+  color: var(--themeColor);
+}
 .detail-wrap {
   margin-top: 15px;
   background-color: #fff;

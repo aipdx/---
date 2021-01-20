@@ -2,15 +2,18 @@ import {request} from '../../request/index'
 
 Page({
   data: {
-    detailList: {}
+    detailList: {},
+    isCollect: false
   },
   params: {
     goods_id: ''
   },
   GoodsInfo: {},
-  onLoad(options) {
-    this.params.goods_id = options.goods_id
+  onShow() {
+    const pages = getCurrentPages()
+    this.params.goods_id = pages.length && pages[pages.length - 1].options.goods_id
     this.getDetailList()
+    this.collectStatus()
   },
   async getDetailList() {
     try {
@@ -70,5 +73,59 @@ Page({
   // 立即购买
   buy() {
 
+  },
+  // 进入页面判断是否已收藏
+  collectStatus() {
+    const collectGoods = wx.getStorageSync('collectGoods') || []
+    if (collectGoods.length) {
+      const goodsIndex = collectGoods.findIndex(v => this.params.goods_id == v.goods_id)
+      if (goodsIndex !== -1) {
+        this.setData({
+          isCollect: true
+        })
+      } else {
+        this.setData({
+          isCollect: false
+        })
+      }
+    }
+  },
+  // 收藏
+  collectGoods() {
+    const collectGoods = wx.getStorageSync('collectGoods') || []
+    if (collectGoods.length) {
+      const goodsIndex = collectGoods.findIndex(v => this.params.goods_id == v.goods_id)
+      if (goodsIndex !== -1) { // 存在
+        this.cancelSuccess(collectGoods, goodsIndex)
+      } else {
+        this.collectSuccess(collectGoods)
+      }
+    } else { // 第一次点
+      this.collectSuccess(collectGoods)
+    }
+  },
+  // 收藏成功
+  collectSuccess(collectGoods) {
+    this.setData({
+      isCollect: true
+    })
+    collectGoods.push(this.GoodsInfo)
+    wx.setStorageSync('collectGoods', collectGoods)
+    wx.showToast({
+      title: '收藏成功'
+    })
+  },
+  // 取消收藏
+  cancelSuccess(collectGoods, goodsIndex) {
+    if (goodsIndex !== -1) {
+      collectGoods.splice(goodsIndex, 1)
+    }
+    this.setData({
+      isCollect: false
+    })
+    wx.showToast({
+      title: '取消成功'
+    })
+    wx.setStorageSync('collectGoods', collectGoods)
   }
 })

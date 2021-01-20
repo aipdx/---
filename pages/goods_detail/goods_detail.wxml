@@ -17,8 +17,8 @@
     <view class="price-txt">￥{{detailList.goods_price}}</view>
     <view class="title-collect">
       <view class="title">{{detailList.goods_name}}</view>
-      <view class="collect">
-        <text class="iconfont icon-collection-b"></text>
+      <view bindtap="collectGoods" class="collect">
+        <text class="iconfont icon-collection-b {{isCollect?'collectActive':''}}"></text>
         <text>收藏</text>
       </view>
     </view>
