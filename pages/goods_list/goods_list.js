@@ -3,11 +3,10 @@ import {request} from '../../request/index'
 Page({
   data: {
     tabsList: [
-      {id: 0, name: '综合'},
-      {id: 1, name: '销量'},
-      {id: 2, name: '价格'}
+      {id: 0, name: '综合', checked: true},
+      {id: 1, name: '销量', checked: false},
+      {id: 2, name: '价格', checked: false}
     ],
-    currentIndex: 0,
     proList: [],
   },
   queryParames: {
@@ -66,9 +65,12 @@ Page({
   },
   // 点击tabs事件
   handleTabs(e) {
+    const {tabsList} = this.data
+    tabsList.forEach(v => v.checked = false)
+    tabsList[index].checked = true
     const index = e.detail
     this.setData({
-      currentIndex: index
+      tabsList
     })
     switch (index) {
       case 0:

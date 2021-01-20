@@ -5,16 +5,11 @@ Component({
       value: []
     }
   },
-  data: {
-    currentIndex: 0
-  },
+  data: {},
   methods: {
     tabsChange(e) {
       const index = e.currentTarget.dataset.index
       this.triggerEvent('handleTabs', index)
-      this.setData({
-        currentIndex: index
-      })
     }
   }
 })

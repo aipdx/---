@@ -5,7 +5,7 @@
       wx:key="id"
       data-index="{{index}}"
       bindtap="tabsChange"
-      class="tabs-item {{index===currentIndex?'active':''}}">
+      class="tabs-item {{item.checked?'active':''}}">
       {{item.name}}
     </view>
   </view>

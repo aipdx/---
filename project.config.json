@@ -51,12 +51,6 @@
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"condition": {
-		"search": {
-			"list": []
-		},
-		"conversation": {
-			"list": []
-		},
 		"plugin": {
 			"list": []
 		},
@@ -67,7 +61,6 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
 			"list": [
 				{
 					"id": -1,
@@ -116,6 +109,18 @@
 					"name": "我的",
 					"pathName": "pages/user/user",
 					"query": "",
+					"scene": null
+				},
+				{
+					"name": "我的",
+					"pathName": "pages/user/user",
+					"query": "",
+					"scene": null
+				},
+				{
+					"name": "订单列表",
+					"pathName": "pages/order/order",
+					"query": "type=1",
 					"scene": null
 				}
 			]

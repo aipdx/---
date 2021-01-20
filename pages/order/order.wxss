@@ -1,0 +1,26 @@
+.order_wrap {
+  background-color: #dddddd;
+}
+.item_wrap {
+  padding: 20rpx;
+  background-color: #fff;
+  margin-top: 15rpx;
+}
+.item_wrap .list_wrap {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10rpx;
+}
+.item_wrap .list_wrap:first-child {
+  margin-top: 0;
+}
+.item_wrap .item-l {
+  color: #666666;
+}
+.item_wrap .item-r {
+  color: #666666;
+}
+.item_wrap .price_txt {
+  color: var(--themeColor);
+  font-size: 30rpx;
+}
