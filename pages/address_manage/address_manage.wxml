@@ -33,6 +33,6 @@
   <!--提交按钮-->
   <view class="submit_btn_wrap">
     <button type="primary" formType="submit">提交</button>
-    <button type="warn" formType="reset" plain>取消</button>
+    <button type="warn" bindtap="restForm" plain>取消</button>
   </view>
 </form>

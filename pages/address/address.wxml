@@ -21,7 +21,7 @@
           <view class="detail_txt">{{item.all}}</view>
         </view>
       </view>
-      <view class="edit_wrap icon-xiugai iconfont"></view>
+      <navigator url="/pages/address_manage/address_manage?id={{index}}" hover-class="none" class="edit_wrap icon-xiugai iconfont"></navigator>
     </view>
   </view>
 </view>

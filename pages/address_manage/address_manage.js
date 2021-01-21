@@ -10,7 +10,10 @@ Page({
     customItem: '', // 自定义picker显示的内容
   },
   Postcode: '', // 邮编
-  onLoad() {},
+  onShow() {
+    const {id} = app.getPage(1).options
+    this.getEditAddress(id)
+  },
   // 省市区选择事件
   bindRegionChange(e) {
     const {value, code, postcode} = e.detail
@@ -21,6 +24,7 @@ Page({
       'form.region': value
     })
   },
+  // 提交表单
   submitForm(e) {
     if (!this.validateForm(e)) return
     // userName,telNumber...对应的是input的name属性
@@ -78,5 +82,28 @@ Page({
       return false
     }
     return true
+  },
+  // 编辑地址获取需要编辑的地址信息
+  getEditAddress(id) {
+    const addressList = wx.getStorageSync('addressList') || []
+    const address = addressList[id]
+    this.setData({
+      'form.userName': address.userName,
+      'form.telNumber': address.telNumber,
+      'form.addrDetail': address.detailInfo,
+      'form.region': [address.provinceName, address.cityName, address.countyName],
+    })
+  },
+  // 重置表单
+  restForm() {
+    this.setData({
+      'form.userName': '',
+      'form.telNumber': '',
+      'form.addrDetail': '',
+      'form.region': []
+    })
+    wx.navigateBack({
+      delta: 1
+    })
   }
 })
