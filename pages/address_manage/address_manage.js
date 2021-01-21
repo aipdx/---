@@ -12,7 +12,9 @@ Page({
   Postcode: '', // 邮编
   onShow() {
     const {id} = app.getPage(1).options
-    this.getEditAddress(id)
+    if (id !== 0 && id) {
+      this.getEditAddress(id)
+    }
   },
   // 省市区选择事件
   bindRegionChange(e) {
