@@ -5,23 +5,31 @@
   </view>
   <!--有地址-->
   <view wx:else class="have_addr_wrap">
-    <view wx:for="{{address}}" wx:key="index" class="addr_item">
-      <view class="checkbox_wrap">
-        <radio-group bindchange="handleAddress" data-index="{{index}}">
-          <radio checked="{{item.checked}}" value="{{item.userName}}" color="#eb4450"></radio>
-        </radio-group>
-      </view>
-      <view class="addr_detail">
-        <view class="addr_name">
-          <text class="name_txt">{{item.userName}}</text>
-          <text class="tel_txt">{{item.telNumber}}</text>
+    <view wx:for="{{address}}" wx:key="index" class="slideview_wrap">
+      <mp-slideview buttons="{{slideButtons}}" data-index="{{index}}" bindbuttontap="slideButtonTap">
+        <view class="addr_item">
+          <view class="checkbox_wrap">
+            <radio-group bindchange="handleAddress" data-index="{{index}}">
+              <radio checked="{{item.checked}}" value="{{item.userName}}" color="#eb4450"></radio>
+            </radio-group>
+          </view>
+          <view class="addr_detail">
+            <view class="addr_name">
+              <text class="name_txt">{{item.userName}}</text>
+              <text class="tel_txt">{{item.telNumber}}</text>
+            </view>
+            <view class="addr_txt_wrap">
+              <view class="addr_txt">地址：</view>
+              <view class="detail_txt">{{item.all}}</view>
+            </view>
+          </view>
+          <navigator
+            url="/pages/address_manage/address_manage?id={{index}}"
+            hover-class="none"
+            class="edit_wrap icon-xiugai iconfont">
+          </navigator>
         </view>
-        <view class="addr_txt_wrap">
-          <view class="addr_txt">地址：</view>
-          <view class="detail_txt">{{item.all}}</view>
-        </view>
-      </view>
-      <navigator url="/pages/address_manage/address_manage?id={{index}}" hover-class="none" class="edit_wrap icon-xiugai iconfont"></navigator>
+      </mp-slideview>
     </view>
   </view>
 </view>

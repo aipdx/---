@@ -4,84 +4,92 @@ page {
   padding-bottom: 90rpx;
 }
 
-.addr_wrap {
-  .no_addr_wrap {
+.no_addr_wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20rpx;
+
+  navigator {
+    color: #06ae56;
+    font-size: 40rpx;
+    width: 70%;
+    border-radius: 15rpx;
+    height: 90rpx;
+    border: 1px solid #06ae56;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 20rpx;
+    font-weight: bold;
+  }
+}
 
-    navigator {
-      color: #06ae56;
-      font-size: 40rpx;
-      width: 70%;
-      border-radius: 15rpx;
-      height: 90rpx;
-      border: 1px solid #06ae56;
+.have_addr_wrap {
+  padding: 20rpx;
+
+  .slideview_wrap {
+    margin-top: 15rpx;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    /deep/ .weui-slideview__btn {
+      height: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
-      font-weight: bold;
     }
   }
 
-  .have_addr_wrap {
-    padding: 20rpx;
+  .addr_item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 30rpx 10rpx;
+  }
 
-    .addr_item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: #fff;
-      margin-top: 15rpx;
-      padding: 30rpx 10rpx;
+  .checkbox_wrap {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-      &:first-child {
-        margin-top: 0;
-      }
+    radio {
+      transform: scale(0.7);
     }
+  }
 
-    .checkbox_wrap {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+  .addr_detail {
+    flex: 8;
+    margin-left: 15rpx;
 
-      radio {
-        transform: scale(0.7);
-      }
-    }
-
-    .addr_detail {
-      flex: 8;
-      margin-left: 15rpx;
-
-      .addr_name {
-        color: #666666;
-      }
-
-      .tel_txt {
-        margin-left: 20rpx;
-      }
-
-      .addr_txt_wrap {
-        color: #666666;
-        margin-top: 15rpx;
-        display: flex;
-
-        .addr_txt {
-          flex-shrink: 0;
-        }
-      }
-    }
-
-    .edit_wrap {
-      flex: 1;
+    .addr_name {
       color: #666666;
-      font-size: 30rpx;
-      display: flex;
-      justify-content: center;
     }
+
+    .tel_txt {
+      margin-left: 20rpx;
+    }
+
+    .addr_txt_wrap {
+      color: #666666;
+      margin-top: 15rpx;
+      display: flex;
+
+      .addr_txt {
+        flex-shrink: 0;
+      }
+    }
+  }
+
+  .edit_wrap {
+    flex: 1;
+    color: #666666;
+    font-size: 30rpx;
+    display: flex;
+    justify-content: center;
   }
 }
 

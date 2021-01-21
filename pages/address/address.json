@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "mp-slideview": "weui-miniprogram/slideview/slideview"
+  },
   "navigationBarTitleText": "地址管理"
 }

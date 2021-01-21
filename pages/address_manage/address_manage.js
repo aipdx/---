@@ -10,9 +10,11 @@ Page({
     customItem: '', // 自定义picker显示的内容
   },
   Postcode: '', // 邮编
+  AddressId: -1,
   onShow() {
     const {id} = app.getPage(1).options
-    if (id !== 0 && id) {
+    if (id >= 0) {
+      this.AddressId = id
       this.getEditAddress(id)
     }
   },
@@ -32,17 +34,28 @@ Page({
     // userName,telNumber...对应的是input的name属性
     const {userName, telNumber, region, addrDetail} = e.detail.value
     const addressList = wx.getStorageSync('addressList') || []
-    const address = {
-      userName,
-      telNumber,
-      postalCode: this.Postcode,
-      provinceName: region[0],
-      cityName: region[1],
-      countyName: region[2],
-      detailInfo: addrDetail,
-      all: region[0] + region[1] + region[2] + addrDetail
+    if (this.AddressId >= 0) { // 编辑地址
+      addressList[this.AddressId].userName = userName
+      addressList[this.AddressId].telNumber = telNumber
+      addressList[this.AddressId].postalCode = this.Postcode
+      addressList[this.AddressId].provinceName = region[0]
+      addressList[this.AddressId].cityName = region[1]
+      addressList[this.AddressId].countyName = region[2]
+      addressList[this.AddressId].detailInfo = addrDetail
+      addressList[this.AddressId].all = region[0] + region[1] + region[2] + addrDetail
+    } else { // 新增地址
+      const address = {
+        userName,
+        telNumber,
+        postalCode: this.Postcode,
+        provinceName: region[0],
+        cityName: region[1],
+        countyName: region[2],
+        detailInfo: addrDetail,
+        all: region[0] + region[1] + region[2] + addrDetail
+      }
+      addressList.push(address)
     }
-    addressList.push(address)
     wx.setStorageSync('addressList', addressList)
     wx.showToast({
       title: '提交成功',

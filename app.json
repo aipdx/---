@@ -53,6 +53,9 @@
     "navigationBarTitleText": "优购",
     "navigationBarTextStyle":"white"
   },
+  "useExtendedLib": {
+    "weui": true
+  },
   "style": "v2",
   "sitemapLocation": "sitemap.json"
 }
