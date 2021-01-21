@@ -10,18 +10,18 @@
 .floor-item .list-wrap {
   overflow: hidden;
 }
-.floor-item .list-wrap navigator {
+.floor-item .list-wrap .img_link {
   float: left;
   width: 33.33%;
   border-left: 10rpx solid #fff;
 }
-.floor-item .list-wrap navigator:nth-child(2),
-.floor-item .list-wrap navigator:nth-child(3) {
+.floor-item .list-wrap .img_link:nth-child(2),
+.floor-item .list-wrap .img_link:nth-child(3) {
   border-bottom: 3rpx solid #fff;
 }
-.floor-item .list-wrap navigator:nth-last-child(-n+4) image {
+.floor-item .list-wrap .img_link:nth-last-child(-n+4) .list_img {
   height: 25.92vw;
 }
-.floor-item .list-wrap navigator image {
+.floor-item .list-wrap .img_link .list_img {
   width: 100%;
 }

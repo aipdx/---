@@ -12,12 +12,12 @@
   width: 100rpx;
   height: 100rpx;
 }
-.img_wrap .img_item image {
+.img_wrap .img_item .img_list {
   width: 100%;
   max-height: 100rpx;
   border-radius: 15rpx;
 }
-.img_wrap .img_item icon {
+.img_wrap .img_item .del_icon {
   position: absolute;
   right: -9rpx;
   top: -14rpx;

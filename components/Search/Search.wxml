@@ -1,3 +1,3 @@
 <view class="search-link">
-    <navigator url="/pages/search/search" open-type="navigate" hover-class="none">搜索</navigator>
+    <navigator url="/pages/search/search" open-type="navigate" class="search_navi" hover-class="none">搜索</navigator>
 </view>

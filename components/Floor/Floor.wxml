@@ -12,8 +12,9 @@
         wx:for-item="product"
         wx:for-index="i"
         wx:key="name"
+        class="img_link"
         url="{{product.navigator_url}}">
-        <image mode="{{i===0? 'widthFix': 'scaleToFill'}}" src="{{product.image_src}}"></image>
+        <image mode="{{i===0? 'widthFix': 'scaleToFill'}}" src="{{product.image_src}}" class="list_img"></image>
       </navigator>
     </view>
   </view>
