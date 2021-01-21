@@ -5,10 +5,10 @@
   </view>
   <!--有地址-->
   <view wx:else class="have_addr_wrap">
-    <view wx:for="{{address}}" class="addr_item">
+    <view wx:for="{{address}}" wx:key="index" class="addr_item">
       <view class="checkbox_wrap">
-        <checkbox-group>
-          <checkbox></checkbox>
+        <checkbox-group bindchange="handleAddress" data-checked="{{item.checked}}" data-index="{{index}}">
+          <checkbox checked="{{item.checked}}" value="{{item.userName}}"></checkbox>
         </checkbox-group>
       </view>
       <view class="addr_detail">

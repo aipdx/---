@@ -5,15 +5,26 @@ Page({
   onShow() {
     this.getAddress()
   },
+  // 获取地址信息
   getAddress() {
-    const address = wx.getStorageSync('address') // 通过授权得到的地址
     const addressList = wx.getStorageSync('addressList') || [] // 用户自己在新增地址页面添加的
-    if (address) {
-      addressList.push(address)
-      this.setData({
-        address: addressList
-      })
-    }
-    console.log(this.data.address)
+    addressList.map(v => {
+      if (!v.checked) { // 如果没有checked就添加一个
+        v.checked = false
+      }
+    }) // 给地址添加一个是否选中的标识
+    this.setData({
+      address: addressList
+    })
+  },
+  // 选择地址
+  handleAddress(e) {
+    const {checked, index} = e.currentTarget.dataset
+    let {address} = this.data
+    address[index].checked = !checked
+    this.setData({
+      address
+    })
+    wx.setStorageSync('addressList', address)
   }
 })
