@@ -19,9 +19,9 @@ Page({
   },
   // 选择地址
   handleAddress(e) {
-    const {checked, index} = e.currentTarget.dataset
+    const {index} = e.currentTarget.dataset
     let {address} = this.data
-    address[index].checked = !checked
+    address.forEach((v, i) => i === index ? v.checked = true : v.checked = false)
     this.setData({
       address
     })

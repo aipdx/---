@@ -31,6 +31,9 @@ page {
 .addr_manage .province_select .picker_wrap picker {
   width: 70%;
 }
+.addr_manage .province_select .picker_wrap .default_picker {
+  color: #acacac;
+}
 .addr_manage .province_select .addr_ma_icon {
   font-size: 30rpx;
   color: #acacac;

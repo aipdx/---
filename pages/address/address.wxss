@@ -41,8 +41,8 @@ page {
   justify-content: center;
   align-items: center;
 }
-.addr_wrap .have_addr_wrap .checkbox_wrap checkbox {
-  transform: scale(0.6);
+.addr_wrap .have_addr_wrap .checkbox_wrap radio {
+  transform: scale(0.7);
 }
 .addr_wrap .have_addr_wrap .addr_detail {
   flex: 8;

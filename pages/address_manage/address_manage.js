@@ -5,7 +5,7 @@ Page({
       userName: '',
       telNumber: '',
       addrDetail: '',
-      region: [], // 省市区数据
+      region: ['请选择省市区/县', '', ''], // 省市区数据 第一个可以当placeholder
     },
     customItem: '', // 自定义picker显示的内容
   },
