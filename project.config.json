@@ -153,6 +153,12 @@
 					"pathName": "pages/address/address",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "编辑地址",
+					"pathName": "pages/address_manage/address_manage",
+					"scene": null
 				}
 			]
 		}

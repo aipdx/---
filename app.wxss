@@ -16,3 +16,8 @@ page {
 image {
   width: 100%;
 }
+
+/*placeholder颜色*/
+.placeholder_class {
+  color: #acacac;
+}

@@ -1,0 +1,38 @@
+<form bindsubmit="submitForm">
+  <view class="addr_manage">
+    <view class="addr_ma_item">
+      <view class="addr_ma_txt">姓名</view>
+      <view class="addr_ma_input">
+        <input placeholder="请填写收货人姓名" value="{{form.userName}}" name="userName" placeholder-class="placeholder_class"/>
+      </view>
+    </view>
+    <view class="addr_ma_item">
+      <view class="addr_ma_txt">电话</view>
+      <view class="addr_ma_input">
+        <input placeholder="请填写收货电话" value="{{form.telNumber}}" name="telNumber" placeholder-class="placeholder_class"/>
+      </view>
+    </view>
+    <view class="addr_ma_item province_select">
+      <view class="picker_wrap">
+        <view class="addr_ma_txt">省市区</view>
+        <picker mode="region" bindchange="bindRegionChange" value="{{form.region}}" name="region" custom-item="{{customItem}}">
+          <view class="picker">
+            {{form.region[0]}}-{{form.region[1]}}-{{form.region[2]}}
+          </view>
+        </picker>
+      </view>
+      <view class="addr_ma_icon">></view>
+    </view>
+    <view class="addr_ma_item">
+      <view class="addr_ma_txt">详细信息</view>
+      <view class="addr_ma_input">
+        <input placeholder="街道、楼牌号等" value="{{form.addrDetail}}" name="addrDetail" placeholder-class="placeholder_class"/>
+      </view>
+    </view>
+  </view>
+  <!--提交按钮-->
+  <view class="submit_btn_wrap">
+    <button type="primary" formType="submit">提交</button>
+    <button type="warn" formType="reset" plain>取消</button>
+  </view>
+</form>
