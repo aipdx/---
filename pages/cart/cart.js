@@ -6,8 +6,13 @@ Page({
     cartList: [],
     checkedAll: false,
     totalPrice: 0,
-    buyTotal: 0
+    buyTotal: 0,
+    slideButtons: [{ // 左滑按钮配置
+      type: 'warn',
+      text: '删除'
+    }],
   },
+  externalClasses: ['slideview_wrap'],
   // 因为这个页面会频繁的打开，所有用onShow
   onShow() {
     this.getStorageAddr()
@@ -181,5 +186,26 @@ Page({
     wx.navigateTo({
       url: '/pages/pay/pay'
     })
+  },
+  // 左滑删除
+  slideButtonTap(e) {
+    const {index} = e.detail // index对应的是slideButtons数组的索引 index为多少就表示点击的是数组的第几个
+    const currentIndex = e.currentTarget.dataset.index // 点击当前的索引
+    let {cartList} = this.data
+    if (index === 0) { // 删除
+      wx.showModal({
+        content: '确认删除吗',
+        success: (res) => {
+          if (res.confirm) { // 用户点击了确定
+            cartList.splice(currentIndex, 1) // 删除当前索引对应的数据
+            this.setData({cartList})
+            this.getTotal(cartList)
+            wx.setStorageSync('cart', cartList)
+          } else {
+            console.log('用户点击了取消')
+          }
+        }
+      })
+    }
   }
 })

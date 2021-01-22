@@ -24,27 +24,31 @@
   <view class="cart-pro">
     <view class="cart-title">选购商品</view>
     <!--列表--有数据-->
-    <view wx:if="{{cartList.length}}" class="pro-list">
-      <view wx:for="{{cartList}}" wx:key="goods_id" class="pro-item">
-        <view class="checkbox-wrap">
-          <checkbox-group data-checked="{{item.checked}}" data-index="{{index}}" bindchange="singleCheck">
-            <checkbox checked="{{item.checked}}" value="{{item.goods_id}}"/>
-          </checkbox-group>
-        </view>
-        <navigator hover-class="none" url="/pages/goods_detail/goods_detail?goods_id={{item.goods_id}}" class="img-wrap">
-          <image mode="widthFix" src="{{item.goods_small_logo}}"/>
-        </navigator>
-        <view class="pro-r">
-          <navigator hover-class="none" url="/pages/goods_detail/goods_detail?goods_id={{item.goods_id}}" class="pro-name">{{item.goods_name}}</navigator>
-          <view class="pro-price-num">
-            <view class="price">￥{{item.goods_price}}</view>
-            <view class="num">
-              <view class="btn" data-num="{{-1}}" data-index="{{index}}" bindtap="changeBuyNum">-</view>
-              <view class="number">{{item.num}}</view>
-              <view class="btn" data-num="{{1}}" bindtap="changeBuyNum" data-index="{{index}}">+</view>
+    <view wx:if="{{cartList.length}}" class="pro_list">
+      <view wx:for="{{cartList}}" wx:key="goods_id">
+        <mp-slideview buttons="{{slideButtons}}" class="slideview_wrap" data-index="{{index}}" bindbuttontap="slideButtonTap">
+          <view class="pro-item">
+            <view class="checkbox-wrap">
+              <checkbox-group data-checked="{{item.checked}}" data-index="{{index}}" bindchange="singleCheck">
+                <checkbox checked="{{item.checked}}" value="{{item.goods_id}}"/>
+              </checkbox-group>
+            </view>
+            <navigator hover-class="none" url="/pages/goods_detail/goods_detail?goods_id={{item.goods_id}}" class="img-wrap">
+              <image mode="widthFix" src="{{item.goods_small_logo}}"/>
+            </navigator>
+            <view class="pro-r">
+              <navigator hover-class="none" url="/pages/goods_detail/goods_detail?goods_id={{item.goods_id}}" class="pro-name">{{item.goods_name}}</navigator>
+              <view class="pro-price-num">
+                <view class="price">￥{{item.goods_price}}</view>
+                <view class="num">
+                  <view class="btn" data-num="{{-1}}" data-index="{{index}}" bindtap="changeBuyNum">-</view>
+                  <view class="number">{{item.num}}</view>
+                  <view class="btn" data-num="{{1}}" bindtap="changeBuyNum" data-index="{{index}}">+</view>
+                </view>
+              </view>
             </view>
           </view>
-        </view>
+        </mp-slideview>
       </view>
     </view>
     <!--没有数据-->

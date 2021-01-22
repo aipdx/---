@@ -30,12 +30,6 @@ page {
 .have_addr_wrap .slideview_wrap:first-child {
   margin-top: 0;
 }
-.have_addr_wrap .slideview_wrap /deep/ .weui-slideview__btn {
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 .have_addr_wrap .addr_item {
   display: flex;
   justify-content: space-between;

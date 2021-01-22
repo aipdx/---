@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "mp-slideview": "weui-miniprogram/slideview/slideview"
+  },
   "navigationBarTitleText": "购物车"
 }
