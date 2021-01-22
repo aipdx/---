@@ -158,7 +158,7 @@
 					"id": 12,
 					"name": "编辑地址",
 					"pathName": "pages/address_manage/address_manage",
-					"query": "id=0",
+					"query": "",
 					"scene": null
 				}
 			]

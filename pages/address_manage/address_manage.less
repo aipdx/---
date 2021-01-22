@@ -20,32 +20,33 @@ page {
       padding-right: 20rpx;
     }
   }
+}
 
-  .province_select {
+.province_select {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .picker_wrap {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex: 5;
 
-    .picker_wrap {
-      display: flex;
-      flex: 5;
-
-      .addr_ma_txt {
-        margin-right: 20rpx;
-      }
-
-      picker {
-        width: 70%;
-      }
-      .default_picker {
-        color: #acacac;
-      }
+    .addr_ma_txt {
+      margin-right: 20rpx;
     }
 
-    .addr_ma_icon {
-      font-size: 30rpx;
+    picker {
+      width: 70%;
+    }
+
+    .default_picker {
       color: #acacac;
     }
+  }
+
+  .addr_ma_icon {
+    font-size: 30rpx;
+    color: #acacac;
   }
 }
 
@@ -58,5 +59,27 @@ page {
     font-weight: normal;
     width: 100% !important;
     margin-top: 20rpx;
+  }
+}
+
+/*=========================weui==========================*/
+.we_form_wrap {
+  .form_item {
+    display: flex;
+    color: #666666;
+    font-size: 28rpx;
+  }
+
+  .form_item_region {
+    color: #666666;
+    font-size: 28rpx;
+  }
+
+  .cell--weui-cell {
+    width: 100%;
+  }
+
+  .weui-label {
+    width: 136rpx;
   }
 }

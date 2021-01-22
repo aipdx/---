@@ -16,25 +16,25 @@ page {
   margin-left: 30rpx;
   padding-right: 20rpx;
 }
-.addr_manage .province_select {
+.province_select {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.addr_manage .province_select .picker_wrap {
+.province_select .picker_wrap {
   display: flex;
   flex: 5;
 }
-.addr_manage .province_select .picker_wrap .addr_ma_txt {
+.province_select .picker_wrap .addr_ma_txt {
   margin-right: 20rpx;
 }
-.addr_manage .province_select .picker_wrap picker {
+.province_select .picker_wrap picker {
   width: 70%;
 }
-.addr_manage .province_select .picker_wrap .default_picker {
+.province_select .picker_wrap .default_picker {
   color: #acacac;
 }
-.addr_manage .province_select .addr_ma_icon {
+.province_select .addr_ma_icon {
   font-size: 30rpx;
   color: #acacac;
 }
@@ -47,4 +47,20 @@ page {
   font-weight: normal;
   width: 100% !important;
   margin-top: 20rpx;
+}
+/*=========================weui==========================*/
+.we_form_wrap .form_item {
+  display: flex;
+  color: #666666;
+  font-size: 28rpx;
+}
+.we_form_wrap .form_item_region {
+  color: #666666;
+  font-size: 28rpx;
+}
+.we_form_wrap .cell--weui-cell {
+  width: 100%;
+}
+.we_form_wrap .weui-label {
+  width: 136rpx;
 }
