@@ -16,11 +16,11 @@ export const request = (params, isToken) => {
     title: '加载中',
     mask: true
   })
-  return new Promise(((resolve, reject) => {
+  return new Promise((resolve, reject) => {
     wx.request({
       ...params,
       header: header,
-      url: ENV.baseURL + params.url,
+      url: params.customUrl || ENV.baseURL + params.url, // params.customUrl自定义的url，有些接口可能baseURL也不同
       success: result => {
         if (result.data.meta.status === 200) {
           resolve(result.data.message) // 直接返回结果，需要结构一样
@@ -41,5 +41,5 @@ export const request = (params, isToken) => {
         }
       }
     })
-  }))
+  })
 }
