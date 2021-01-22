@@ -24,6 +24,8 @@ export const request = (params, isToken) => {
       success: result => {
         if (result.data.meta.status === 200) {
           resolve(result.data.message) // 直接返回结果，需要结构一样
+        } else {
+          reject(result.meta.msg)
         }
       },
       fail: err => {
@@ -32,7 +34,7 @@ export const request = (params, isToken) => {
           icon: "none",
           duration: 2000
         })
-        reject(err)
+        reject(err.data)
       },
       complete(res) {
         ajaxTimes--
