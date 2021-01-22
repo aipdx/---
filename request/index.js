@@ -30,7 +30,7 @@ export const request = (params, isToken) => {
         wx.showToast({
           title: '获取数据失败',
           icon: "none",
-          duration: 20000
+          duration: 2000
         })
         reject(err)
       },
