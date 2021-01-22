@@ -1,4 +1,4 @@
-import {request} from '../../request/index'
+import {getSwiperData, getCatitems, getFloorData} from '../../api/home'
 
 Page({
   data: {
@@ -12,30 +12,21 @@ Page({
     this.getFloorList()
   },
   getSwiperList() {
-    const swierParams = {
-      url: '/home/swiperdata',
-    }
-    request(swierParams).then(res => {
+    getSwiperData().then(res => {
       this.setData({
         swiperList: res
       })
     })
   },
   getTabsList() {
-    const tabsParams = {
-      url: '/home/catitems',
-    }
-    request(tabsParams).then(res => {
+    getCatitems().then(res => {
       this.setData({
         tabsList: res
       })
     })
   },
   getFloorList() {
-    const tabsParams = {
-      url: '/home/floordata',
-    }
-    request(tabsParams).then(res => {
+    getFloorData().then(res => {
       this.setData({
         floorList: res
       })

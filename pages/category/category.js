@@ -1,4 +1,4 @@
-import {request} from '../../request/index'
+import {getCategories} from '../../api/category'
 
 Page({
   data: {
@@ -23,20 +23,11 @@ Page({
   },
   async getCategory() {
     try {
-      const parame = {
-        url: '/categories'
-      }
-      const res = await request(parame)
+      const res = await getCategories()
       this.categoryList = res
       // 存入本地
       wx.setStorageSync('cates', {time: Date.now(), data: this.categoryList})
       this.setCommonData(this.categoryList)
-      // request(parame).then(res => {
-      //   this.categoryList = res.data.message
-      //   // 存入本地
-      //   wx.setStorageSync('cates', {time: Date.now(), data: this.categoryList})
-      //   this.setCommonData(this.categoryList)
-      // })
     } catch (e) {
       console.log(e)
     }

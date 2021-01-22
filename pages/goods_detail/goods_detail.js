@@ -1,4 +1,4 @@
-import {request} from '../../request/index'
+import {getGoodsDetail} from '../../api/goods'
 
 Page({
   data: {
@@ -20,12 +20,9 @@ Page({
   async getDetailList() {
     try {
       const params = {
-        url: '/goods/detail',
-        data: {
-          ...this.params
-        }
+        ...this.params
       }
-      const res = await request(params)
+      const res = await getGoodsDetail(params)
       this.GoodsInfo = res
       this.setData({
         detailList: {

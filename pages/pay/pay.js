@@ -1,4 +1,4 @@
-import {request} from '../../request/index'
+import {createOrder,unifiedOrder,checkOrder} from '../../api/order'
 import {requestPayment} from '../../utils/asyncWx'
 
 Page({
@@ -49,37 +49,25 @@ Page({
         })
       })
       const params = {
-        url: '/my/orders/create',
-        method: 'post',
-        data: {
-          order_price: totalPrice,
-          goods,
-          consignee_addr,
-        }
+        order_price: totalPrice,
+        goods,
+        consignee_addr,
       }
       // 创建订单 获取订单id
-      const {order_number} = await request(params, 'isToken')
+      const {order_number} = await createOrder(params)
       // 获取支付参数
       const payParams = {
-        url: '/my/orders/req_unifiedorder',
-        method: 'post',
-        data: {
-          order_number
-        }
+        order_number
       }
       // 用订单id获取到微信支付需要的pay
-      const {pay} = await await request(payParams, 'isToken')
+      const {pay} = await unifiedOrder(payParams)
       // 调用微信内置的支付API --- 发起微信支付
       await requestPayment(pay)
       // 查询订单---看看订单是否支付成功
       const orderListParams = {
-        url: '/my/orders/chkOrder',
-        method: 'post',
-        data: {
-          order_number
-        }
+        order_number
       }
-      const res = await request(orderListParams, 'isToken')
+      const res = await checkOrder(orderListParams)
       console.log(res) // 可以根据这个返回值来判断是否支付成功
       wx.showToast({
         title: '支付成功'

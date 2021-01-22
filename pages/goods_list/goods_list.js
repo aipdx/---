@@ -1,4 +1,4 @@
-import {request} from '../../request/index'
+import {getGoodsSearch} from '../../api/goods'
 
 Page({
   data: {
@@ -46,20 +46,16 @@ Page({
   // 获取渲染数据
   getProList() {
     const params = {
-      url: '/goods/search',
-      data: {
-        ...this.queryParames,
-        pagenum: this.queryParames.pagenum
-      }
+      ...this.queryParames,
+      pagenum: this.queryParames.pagenum
     }
     const proList = this.data.proList
-    request(params).then(res => {
+    getGoodsSearch(params).then(res => {
       this.totalNum = res.total
       this.setData({
         proList: [...proList, ...res.goods],
       })
     }).finally(e => {
-      console.log(e)
       wx.stopPullDownRefresh() // 得到数据后停止加载动画
     })
   },

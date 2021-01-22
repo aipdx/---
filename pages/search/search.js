@@ -1,4 +1,4 @@
-import {request} from '../../request/index'
+import {getSearchData} from '../../api/search'
 
 Page({
   data: {
@@ -27,12 +27,9 @@ Page({
   async qsearch(query) {
     try {
       const params = {
-        url: '/goods/qsearch',
-        data: {
-          query
-        }
+        query
       }
-      const res = await request(params)
+      const res = await getSearchData(params)
       this.setData({
         searchList: res,
         keyword: query

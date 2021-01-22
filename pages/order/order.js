@@ -1,4 +1,4 @@
-import {request} from '../../request/index'
+import {getAllOrder} from '../../api/order'
 
 Page({
   data: {
@@ -34,12 +34,9 @@ Page({
   async getOrderList(type) {
     try {
       const param = {
-        url: '/my/orders/all',
-        data: {
-          type: Number(type)
-        }
+        type: Number(type)
       }
-      const {orders} = await request(param, 'isToken')
+      const {orders} = await getAllOrder(param)
       this.setData({
         orderList: orders.map(v => ({...v, create_time_cn: (new Date(v.create_time * 1000).toLocaleString())}))
       })
