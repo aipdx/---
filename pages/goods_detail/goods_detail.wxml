@@ -8,7 +8,7 @@
   <view class="swiper-wrap">
     <swiper indicator-dots circular>
       <swiper-item wx:for="{{detailList.pics}}" wx:key="pics_id">
-        <image data-src="{{item.pics_big}}" bindtap="previewImg" mode="widthFix" src="{{item.pics_mid}}"></image>
+        <image data-src="{{item.pics_big}}" data-index="{{index}}" bindtap="previewImg" mode="widthFix" src="{{item.pics_mid}}"></image>
       </swiper-item>
     </swiper>
   </view>
@@ -29,6 +29,13 @@
     <rich-text class="rich-text" nodes="{{detailList.goods_introduce}}"></rich-text>
   </view>
   <!--预览大图弹窗-->
+  <mp-gallery
+    show="{{showGallery}}"
+    showDelete="{{false}}"
+    img-urls="{{galleryImgList}}"
+    hide-on-click="{{true}}"
+    current="{{currentImg}}">
+  </mp-gallery>
   <!--底部工具栏-->
   <view class="tool-wrap">
     <view class="icon-tool">

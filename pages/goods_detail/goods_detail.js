@@ -3,7 +3,10 @@ import {getGoodsDetail} from '../../api/goods'
 Page({
   data: {
     detailList: {},
-    isCollect: false // 商品是否被收藏
+    isCollect: false, // 商品是否被收藏
+    galleryImgList: [], // 预览大图数组
+    showGallery: false, // 是否显示预览大图
+    currentImg: 0, // 当前预览大图的index,从0开始
   },
   params: {
     goods_id: ''
@@ -41,12 +44,19 @@ Page({
   },
   // 点击预览大图
   previewImg(e) {
-    const src = e.currentTarget.dataset.src
+    const {src, index} = e.currentTarget.dataset
     let imgList = this.data.detailList.pics.map(v => v.pics_mid)
-    wx.previewImage({
-      current: src,
-      urls: imgList
+    // 使用weui
+    this.setData({
+      galleryImgList: imgList,
+      currentImg: index,
+      showGallery: true,
     })
+    // 原生预览大图
+    // wx.previewImage({
+    //   current: src,
+    //   urls: imgList
+    // })
   },
   // 加入购物车
   addToCart() {

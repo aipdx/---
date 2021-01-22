@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "mp-gallery": "weui-miniprogram/gallery/gallery"
+  },
   "navigationBarTitleText": "商品详情"
 }
